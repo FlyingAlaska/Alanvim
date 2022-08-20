@@ -6,6 +6,7 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 plugin({ 'glepnir/zephyr-nvim', config = conf.zephyr })
+plugin({ 'tanvirtin/monokai.nvim', config = conf.monokai })
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 
@@ -24,3 +25,8 @@ plugin({
 })
 
 plugin({ 'akinsho/nvim-bufferline.lua', config = conf.nvim_bufferline, requires = 'kyazdani42/nvim-web-devicons' })
+plugin({
+  'lukas-reineke/indent-blankline.nvim',
+  event = 'BufRead',
+  config = conf.indent_blankline,
+})

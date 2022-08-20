@@ -13,6 +13,8 @@ function config.telescope()
   end
   require('telescope').setup({
     defaults = {
+      prompt_prefix = '🔭 ',
+      selection_caret = ' ',
       layout_config = {
         horizontal = { prompt_position = 'top', results_width = 0.6 },
         vertical = { mirror = false },
@@ -30,6 +32,9 @@ function config.telescope()
     },
   })
   require('telescope').load_extension('fzy_native')
+  require('telescope').load_extension('dotfiles')
+  require('telescope').load_extension('gosource')
+  require('telescope').load_extension('file_browser')
 end
 
 return config

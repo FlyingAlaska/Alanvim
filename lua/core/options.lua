@@ -14,7 +14,7 @@ vim.opt.virtualedit = 'block'
 vim.opt.encoding = 'utf-8'
 vim.opt.viewoptions = 'folds,cursor,curdir,slash,unix'
 vim.opt.sessionoptions = 'curdir,help,tabpages,winsize'
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = ''
 vim.opt.wildignorecase = true
 vim.opt.wildignore =
   '.git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**'
@@ -99,6 +99,18 @@ vim.opt.foldenable = true
 vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'niv'
+vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+  cache_enabled = 0
+}
 
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
